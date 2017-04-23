@@ -1,0 +1,22 @@
+<h2>{{city.city}}</h2>
+
+<div id="map" map-location="" latitude="42.070206" longitude="-72.622739">
+</div>        
+
+<script type="text/html" id="whereControl">
+
+    <form class="pure-u-1-4 pure-form pure-form-stacked map-control">
+        
+      <fieldset class="callToAction">
+          
+        <legend> City Location</legend>
+        <label for="latitude">Latitude:</label>
+        <input id="latitude" class="pure-input-1" type="text" ng-model="latitude">
+        <label for="longitude">Longitude:</label>
+        <input id="longitude" class="pure-input-1" type="text" ng-model="longitude">
+          
+      </fieldset>
+        
+    </form>
+
+</script>

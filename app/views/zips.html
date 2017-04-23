@@ -1,0 +1,103 @@
+<h1 class="text-justify">
+    
+    <span style="float: left">
+        <img ng-src="{{ flag }}" />
+    </span> 
+    
+    {{ appSettings.title }}
+    
+    <span style="float: right">
+        <img ng-src="{{ map }}" />
+    </span>
+    
+</h1>
+
+<br />
+
+<div>
+    
+    <h4 class="callToAction">
+        Looking for a Zip Code or city info for Connecticut, Maine, Massachusetts, New Hampshire, Rhode Island or Vermont?<br/>
+        You've come to the right place!<br/>
+        Search by city, state, or Zip Code (if known):
+    </h4>
+        
+</div>
+
+<nav class="navbar navbar-search">
+    
+    <span class="table-header">
+        <strong>  City:</strong>
+    </span> 
+        <input type="text" ng-model="userInput.city" />
+    
+    <span class="table-header">
+        <strong> State Postal Code:</strong>
+    </span> 
+        <input type="text" placeholder=" e.g ME, CT, VT.." ng-model="userInput.state" maxlength="2" capitalize-state-input/>
+    
+    <span class="table-header">
+        <strong> 5-Digit Zip Code:</strong></span>
+        <input type="text" ng-model="userInput._id" maxlength="5"/>
+    
+</nav>
+
+<nav class="navbar navbar-search">
+    
+    <a class="btn btn-lg btn-primary" 
+       ng-click="applySearch()">
+        <i class="glyphicon glyphicon-search"></i>
+        Search
+    </a>
+    
+</nav>
+
+<table align="center" class="table table-hover">
+    
+    <thead class="thead-inverse">
+        
+        <tr class="table-header">
+            
+            <th ng-click="changeSorting('_id')">
+                <i class="glyphicon" ng-class="getIcon('_id')"></i> Zip Code
+            </th>
+            
+            <th ng-click="changeSorting('city')">
+                <i class="glyphicon" ng-class="getIcon('city')"></i> City
+            </th>
+            
+            <th ng-click="changeSorting('state')">
+                <i class="glyphicon" ng-class="getIcon('state')"></i> State
+            </th>
+            
+            <th ng-click="changeSorting('pop')">
+                <i class="glyphicon" ng-class="getIcon('pop')"></i> Population
+            </th>
+            
+            <th>Postal Address</th>
+            
+            <th>Location</th>
+                        
+            <th>i</th>
+            
+        </tr>
+        
+    </thead>
+    
+    <tr ng-repeat="zip in places | filter:zipFilter | orderBy:sort.active:sort.descending" class="repeat-animation">
+        
+        <td>{{ zip._id }}</td>
+        <td>{{ zip.city | capitalizeCity }}</td>
+        <td>{{ zip.state }}</td>
+        <td>{{ zip.pop | number:0 }}</td>
+        <td>{{ zip.city }} {{ zip.state }} {{ zip._id }} </td>
+        <td>{{ zip.loc[1] }}, {{ zip.loc[0] }} </td>
+        <td><a href="#/map/{{ zip._id }}">View Map</a></td>
+        
+    </tr>
+    
+</table>
+
+<br /><br />
+
+<footer>Version: {{ appSettings.version }} </footer>
