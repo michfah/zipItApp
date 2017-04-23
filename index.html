@@ -1,0 +1,44 @@
+<!doctype html>
+<html ng-app="zipApp">
+    
+<head>
+    <title>New England Zip Code App</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet">
+    <link href="styles/styles.css" rel="stylesheet" type="text/css" />
+    <link href="styles/animations.css" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Bree+Serif" rel="stylesheet">
+</head>
+    
+<body>
+    
+    <header>
+        <nav class="navbar navbar-custom">
+            <ul class="nav navbar-nav">
+                
+                <li><a href="#/zips"><i class="glyphicon glyphicon-home"></i></a></li>
+                <li><a href="#/map">Region Map</a></li>
+                
+            </ul>
+        </nav>
+    </header>
+    
+    <main>
+        <div ng-view class="slide-animation"></div>
+    </main>    
+    
+    <script src="scripts/angular.js"></script>
+    <script src="scripts/angular-route.js"></script>
+    <script src="scripts/angular-animate.js"></script>
+    <script src="scripts/angular-maps.js"></script>
+    
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAZNZ9yNsihFVsVJcpC9FB3TblLEmFG_os&callback=initMap"
+    async defer></script>
+    <script src="app/app.js"></script>
+    <script src="app/services/values.js"></script>
+    <script src="app/controllers/zipsController.js"></script>
+    <script src="app/controllers/mapController.js"></script>
+    <script src="app/services/zipsFactory.js"></script>
+
+</body>
+</html>
