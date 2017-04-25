@@ -39,7 +39,7 @@ angular
               longitude = longitude && parseFloat(longitude, 10) || -69.80062596289063;
                 
               mapOptions = {
-                zoom: 7,
+                zoom: 13,
                 disableDefaultUI: true,
                 center: new google.maps.LatLng(latitude, longitude),
                 mapTypeId: google.maps.MapTypeId.ROADMAP
@@ -47,7 +47,7 @@ angular
                 
               map = new google.maps.Map(elem[0], mapOptions);
               ctrl.registerMap(map);
-              controlTemplate = document.getElementById('whereControl').innerHTML.trim();
+              controlTemplate = document.getElementById('locationControl').innerHTML.trim();
               controlElem = $compile(controlTemplate)(scope);
               map.controls[google.maps.ControlPosition.TOP_LEFT].push(controlElem[0]);
               
@@ -67,19 +67,18 @@ angular
     })    
     .controller('MapController', function ($scope, $routeParams, zipsFactory) {
 
-    
-    var zipId = $routeParams.zipId;
-        $scope.city = null;
-        
-        function init() {
-             zipsFactory.getMap(zipId)
-                .then(function(response) {
-                    $scope.city = response.data;
-                }, function(data, status, headers, config) {
-                    //handle error
-                });
-        }        
+        var zipId = $routeParams.zipId;
+            $scope.city = null;
 
-        init();
-});
+            function init() {
+                 zipsFactory.getMap(zipId)
+                    .then(function(response) {
+                        $scope.city = response.data;
+                    }, function(data, status, headers, config) {
+                        //handle error
+                    });
+            }        
+
+            init();
+    });
     
