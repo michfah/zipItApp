@@ -84,7 +84,7 @@
         
     </thead>
     
-    <tr ng-repeat="zip in places | filter:zipFilter | orderBy:sort.active:sort.descending" class="repeat-animation">
+    <tr dir-paginate="zip in places | filter:zipFilter | orderBy:sort.active:sort.descending | itemsPerPage:7">
         
         <td>{{ zip._id }}</td>
         <td>{{ zip.city | capitalizeCity }}</td>
@@ -92,11 +92,19 @@
         <td>{{ zip.pop | number:0 }}</td>
         <td>{{ zip.city }} {{ zip.state }} {{ zip._id }} </td>
         <td>{{ zip.loc[1] }}, {{ zip.loc[0] }} </td>
-        <td><a href="#/map/{{ zip._id }}">View Map</a></td>
+        <td><a href="#/map/{{ zip.id }}">View Map</a></td>
         
     </tr>
     
 </table>
+
+<br/>
+
+    <dir-pagination-controls
+           max-size="5"
+           direction-links="true"
+           boundary-links="true" >
+    </dir-pagination-controls>
 
 <br /><br />
 
