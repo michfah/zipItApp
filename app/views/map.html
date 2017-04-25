@@ -1,9 +1,9 @@
-<h2>{{city.city}}</h2>
+<h2 class="mapTitle">{{ city.city }}, {{ city.state }} {{ city._id }} &nbsp; (Pop: {{ city.pop | number:0 }})</h2>
 
-<div id="map" map-location="" latitude="42.070206" longitude="-72.622739">
+<div id="map" map-location="" latitude="44.0006" longitude="-72.140638">
 </div>        
 
-<script type="text/html" id="whereControl">
+<script type="text/html" id="locationControl">
 
     <form class="pure-u-1-4 pure-form pure-form-stacked map-control">
         
@@ -20,3 +20,5 @@
     </form>
 
 </script>
+
+<h3 class="mapTitle">{{ city.loc[1] }} &nbsp; {{ city.loc[0] }}</h3>
