@@ -8,9 +8,9 @@
                 templateUrl: 'app/views/zips.html',
                 controller: 'ZipsController'
             })
-            .when('/map', {
-                templateUrl: 'app/views/map.html',
-                controller: 'MapController'
+            .when('/regionMap', {
+                templateUrl: 'app/views/regionMap.html',
+                controller: 'RegionMapController'
             })
             .when('/map/:zipId', {
                 templateUrl: 'app/views/map.html',
